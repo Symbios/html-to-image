@@ -34,7 +34,7 @@ export async function toCanvas<T extends HTMLElement>(
   const img = await createImage(svg)
 
   const canvas = document.createElement('canvas')
-  const context = canvas.getContext('2d')!
+  const context = canvas.getContext('2d', { willReadFrequently: true })!
   const ratio = options.pixelRatio || getPixelRatio()
   const canvasWidth = options.canvasWidth || width
   const canvasHeight = options.canvasHeight || height
